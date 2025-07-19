@@ -31,7 +31,8 @@ interface ApartmentBuilder {
   build(): Apartment;
 }
 
-class ConcreteHouseBuilder implements ApartmentBuilder {
+// There can be multiple concrete builders implementing the ApartmentBuilder interface
+class ConcreteApartmentBuilder implements ApartmentBuilder {
   private apartment: Apartment = new Apartment();
 
   buildWalls(): this {
@@ -70,7 +71,7 @@ class Director {
 
 function main() {
   const director = new Director();
-  const concreteBuilder = new ConcreteHouseBuilder();
+  const concreteBuilder = new ConcreteApartmentBuilder();
 
   director.setBuilder(concreteBuilder);
 
